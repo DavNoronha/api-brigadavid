@@ -20,6 +20,7 @@ class AuthController extends Controller
         $user->name = request('name');
         $user->email = request('email');
         $user->password = request('password');
+        $user->admin = false;
 
         $user->save();
 
