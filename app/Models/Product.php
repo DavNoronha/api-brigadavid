@@ -24,7 +24,7 @@ class Product extends Model
             'desc' => 'required',
             'price' => 'required',
             'amount' => 'required',
-            'image' => 'required',
+            'image' => 'required|file|mimes:png,jpeg,jpg,webp',
         ];
     }
 
@@ -33,7 +33,8 @@ class Product extends Model
         return [
             'required' => 'O campo :attribute é obrigatório',
             'name.unique' => 'O nome do produto já existe',
-            'name.min' => 'O nome tem que ter no mínimo 3 caractéres'
+            'name.min' => 'O nome tem que ter no mínimo 3 caractéres',
+            'image.mines' => 'O arquivo deve ser uma imagem de algum dos tipos: png, jpeg, jpg, webp'
         ];
     }
 }

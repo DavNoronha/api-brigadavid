@@ -23,7 +23,7 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::post('register', [AuthController::class, 'register']);
 Route::post('login', [AuthController::class, 'login']);
 
-Route::middleware('api')->prefix('auth')->group(function ($router) {
+Route::middleware('auth:api')->prefix('auth')->group(function ($router) {
 
     Route::post('logout', [AuthController::class, 'logout']);
     Route::post('refresh', [AuthController::class, 'refresh']);
@@ -31,4 +31,4 @@ Route::middleware('api')->prefix('auth')->group(function ($router) {
 
 });
 
-Route::middleware('api')->apiResource('product', ProductController::class);
+Route::apiResource('product', ProductController::class);
